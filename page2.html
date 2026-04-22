@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YES PAGE</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      font-family: Arial, sans-serif;
+    }
+
+    /* LEFT SIDE (GIF) */
+    .left {
+      width: 50%;
+      background: url('scuba.gif') no-repeat center center;
+      background-size: cover;
+    }
+
+    /* RIGHT SIDE */
+    .right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: white;
+    }
+
+    .text {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px pink;
+    }
+
+    .qr {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LEFT (GIF) -->
+  <div class="left"></div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="text">arigatoo uwu</div>
+    <img src="myQRCODE.jpg" alt="QR Code" class="qr">
+  </div>
+
+  <audio id="bgMusic" loop>
+  <source src="kicau-maniaa.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.99;
+
+  // check if user came from YES click
+  if (localStorage.getItem("playMusic") === "true") {
+    music.play().catch(() => {
+      // fallback if browser still blocks
+      document.addEventListener("click", () => {
+        music.play();
+      }, { once: true });
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choice Page</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('siigmasquarepants.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+    .question {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px black;
+}
+    .container {
+      text-align: center;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background-color: #ff0000;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #3af900;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="question">gimme yo money</h1>
+
+  <button id="yesBtn" onclick="goNext()">OFC!!!</button>
+  <button id="noBtn" onclick="moveButton()">nah</button>
+</div>
+
+<audio id="noSound">
+  <source src="dry-fart.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  let texts = [
+  "nah",
+  "u sure?",
+  "be fr 😭",
+  "don’t do this to me",
+  "cmonnn",
+  "just press yes 🙏",
+  "it’ll be funny trust",
+  "no way you clicked that",
+  "bro please 😭",
+  "I’m begging atp",
+  "stop playing",
+  "this is your moment",
+  "do the right thing",
+  "you know you want to",
+  "don’t break my heart 💔",
+  "why are you like this",
+  "please I worked hard on this",
+  "just once 😭",
+  "give it a chance",
+  "it’s literally one click",
+  "don’t be evil",
+  "be a good person",
+  "this says a lot about you",
+  "you’re better than this",
+  "trust the process",
+  "I believe in you",
+  "don’t fold now",
+  "stay strong… and press yes",
+  "you’re so close",
+  "almost there… just press yes",
+  "this is destiny fr",
+  "don’t fight it",
+  "accept it 😌",
+  "it was meant to be",
+  "say yes already",
+  "why you resisting",
+  "just do it ✔️",
+  "I’m losing it rn",
+  "last chance 😭",
+  "FINAL WARNING",
+  "ok now I’m sad",
+  "you hurt my feelings",
+  "this is personal now",
+  "we were doing so well",
+  "don’t ruin it",
+  "please…",
+  "pretty please 🥺",
+  "I’ll be nice I swear",
+  "I’ll stop asking",
+  "just click yes and I disappear",
+  "ok this is awkward now",
+  "just press yes bro"
+];
+  let index = 0;
+
+ function moveButton() {
+  const btn = document.getElementById("noBtn");
+  const sound = document.getElementById("noSound");
+
+  // Play sound
+  sound.currentTime = 0; // restart if spam clicked 😈
+  sound.play();
+
+  // Change text
+  btn.innerText = texts[index];
+  index = (index + 1) % texts.length;
+
+  // Move randomly
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 60);
+
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+
+function goNext() {
+  // store a flag that user clicked
+  localStorage.setItem("playMusic", "true");
+  window.location.href = "page2.html";
+}
+</script>
+
+</body>
+</html>
